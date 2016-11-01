@@ -1,8 +1,8 @@
 print "Starting maya loading and fbx conversion \n";
 	
-if (`file -q -exists "/Users/Akira/Documents/Senior Year Fall 2016/Intro to Game Dev/Unity Project/poetic landscape/Assets/bench.mb"`)
+if (`file -q -exists "/Users/Akira/Documents/Senior Year Fall 2016/Intro to Game Dev/Unity Project/poetic landscape/Assets/level-scene.mb"`)
 {		
-	file -o "/Users/Akira/Documents/Senior Year Fall 2016/Intro to Game Dev/Unity Project/poetic landscape/Assets/bench.mb";
+	file -o "/Users/Akira/Documents/Senior Year Fall 2016/Intro to Game Dev/Unity Project/poetic landscape/Assets/level-scene.mb";
 	FBXExportEmbeddedTextures -v false;
 	// FBXExportHardEdges -v true;
 	FBXExportApplyConstantKeyReducer -v false;
