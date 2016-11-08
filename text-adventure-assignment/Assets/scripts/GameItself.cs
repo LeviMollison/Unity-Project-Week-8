@@ -25,12 +25,18 @@ public class GameItself : MonoBehaviour {
 	// Unlock a door with key, input pattern for another door
 
 	// Use this for initialization
-	AudioClip impact;
-	AudioSource audio;
+	public AudioClip zubat_cry;
+	public AudioClip paris_cry;
+	public AudioClip cave;
+	public AudioSource pokemonCries;
+	public AudioSource bgMusic;
 	void Start () {
 		currentRoom = rooms.title;
-		audio = GetComponent<AudioSource>();
-		impact = (AudioClip) Resources.Load("Sounds/zubat.mp3");
+		bgMusic.clip = cave;
+		if (!bgMusic.isPlaying) {
+			bgMusic.volume = 0.3f;
+			bgMusic.Play();
+		}
 	}
 	
 	// Update is called once per frame
@@ -95,7 +101,10 @@ public class GameItself : MonoBehaviour {
 				roomText += newLines + newLines + "Take a step forward (Key W)";
 				if (Input.GetKeyDown (KeyCode.W)) {
 					currentRoom = rooms.hallStep1;
-					AudioSource.PlayClipAtPoint(impact, new Vector3(0.0f, 0.0f, 1.0f), 1.0f);
+					pokemonCries.clip = zubat_cry;
+					if (!pokemonCries.isPlaying) {
+						pokemonCries.Play();
+					}
 				}
 			} else {
 				if (currentRoom == rooms.hallStep1) {
@@ -104,6 +113,10 @@ public class GameItself : MonoBehaviour {
 					roomText += "\nTake a step backward (Key S)";
 					if (Input.GetKeyDown (KeyCode.D)) {
 						currentRoom = rooms.hallStep2;
+						pokemonCries.clip = paris_cry;
+						if (!pokemonCries.isPlaying) {
+							pokemonCries.Play();
+						}
 					}
 					if (Input.GetKeyDown (KeyCode.S)) {
 						currentRoom = rooms.entry;
@@ -118,6 +131,10 @@ public class GameItself : MonoBehaviour {
 						}
 						if (Input.GetKeyDown (KeyCode.S)) {
 							currentRoom = rooms.hallStep1;
+							pokemonCries.clip = zubat_cry;
+							if (!pokemonCries.isPlaying) {
+								pokemonCries.Play();
+							}
 						}
 					} else {
 						if (currentRoom == rooms.hallStep3) {
