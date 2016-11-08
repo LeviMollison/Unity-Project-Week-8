@@ -26,13 +26,32 @@ public class GameItself : MonoBehaviour {
 
 	// Use this for initialization
 	public AudioClip zubat_cry;
+	public Sprite zubat_img;
 	public AudioClip paris_cry;
+	public Sprite paris_img;
+	public AudioClip meowth;
+	public Sprite meowth_img;
+	public AudioClip machop;
+	public Sprite machop_img;
+	public AudioClip pidgey;
+	public Sprite pidgey_img;
+	public AudioClip unknown;
+	public Sprite unknown_img;
+	public AudioClip golbat;
+	public Sprite golbat_img;
+	public AudioClip dunsparce;
+	public Sprite dunsparce_img;
+
+	public Sprite showThis;
+
+
 	public AudioClip cave;
 	public AudioSource pokemonCries;
 	public AudioSource bgMusic;
 	void Start () {
 		currentRoom = rooms.title;
 		bgMusic.clip = cave;
+		bgMusic.loop = true;
 		if (!bgMusic.isPlaying) {
 			bgMusic.volume = 0.3f;
 			bgMusic.Play();
@@ -108,6 +127,7 @@ public class GameItself : MonoBehaviour {
 				}
 			} else {
 				if (currentRoom == rooms.hallStep1) {
+					showThis = zubat_img;
 					roomText = "Things seem normal, a few zubat cries can be heard deeper into the cave";
 					roomText += newLines + newLines + "Turn right and take a step forward (Key D)";
 					roomText += "\nTake a step backward (Key S)";
@@ -164,6 +184,10 @@ public class GameItself : MonoBehaviour {
 							}
 							if (Input.GetKeyDown (KeyCode.W)) {
 								currentRoom = rooms.hallStep5;
+								pokemonCries.clip = zubat_cry;
+								if (!pokemonCries.isPlaying) {
+									pokemonCries.Play();
+								}
 							}
 							if (Input.GetKeyDown (KeyCode.S)) {
 								currentRoom = rooms.hallStep3;
@@ -201,6 +225,10 @@ public class GameItself : MonoBehaviour {
 
 								if (Input.GetKeyDown (KeyCode.W)) {
 									keyAcquired = true;
+									pokemonCries.clip = pidgey;
+									if (!pokemonCries.isPlaying) {
+										pokemonCries.Play();
+									}
 								}
 								if (Input.GetKeyDown (KeyCode.S)) {
 									currentRoom = rooms.cave2;
@@ -232,9 +260,17 @@ public class GameItself : MonoBehaviour {
 
 							if (Input.GetKeyDown (KeyCode.W)) {
 								currentRoom = rooms.hallStep7;
+								pokemonCries.clip = machop;
+								if (!pokemonCries.isPlaying) {
+									pokemonCries.Play();
+								}
 							}
 							if (Input.GetKeyDown (KeyCode.S)) {
 								currentRoom = rooms.hallStep5;
+								pokemonCries.clip = zubat_cry;
+								if (!pokemonCries.isPlaying) {
+									pokemonCries.Play();
+								}
 							}
 							if (Input.GetKeyDown (KeyCode.D)) {
 								currentRoom = rooms.cave3;
@@ -260,13 +296,21 @@ public class GameItself : MonoBehaviour {
 							}
 							if (Input.GetKeyDown (KeyCode.A)) {
 								currentRoom = rooms.cave4;
+								pokemonCries.clip = meowth;
+								if (!pokemonCries.isPlaying) {
+									pokemonCries.Play();
+								}
 							}
 						} else if (currentRoom == rooms.cave4) {
-							roomText = "Nothing but rocks here again! You catch a meowth snicking towards you in the back, then" +
+							roomText = "Nothing but rocks here again! You catch a meowth snickering towards you in the back, then" +
 							" retreating";
 							roomText += newLines + newLines + "Step back into Uknown Cave (Key S)";
 							if (Input.GetKeyDown (KeyCode.S)) {
 								currentRoom = rooms.hallStep7;
+								pokemonCries.clip = machop;
+								if (!pokemonCries.isPlaying) {
+									pokemonCries.Play();
+								}
 							}
 						} else if (currentRoom == rooms.hallStep8) {
 							roomText = "Starting to get a little tired, man this cave is long";
@@ -274,6 +318,10 @@ public class GameItself : MonoBehaviour {
 							roomText += "\nTake a step backward (Key S)";
 							if (Input.GetKeyDown (KeyCode.W)) {
 								currentRoom = rooms.hallStep9;
+								pokemonCries.clip = golbat;
+								if (!pokemonCries.isPlaying) {
+									pokemonCries.Play();
+								}
 							}
 							if (Input.GetKeyDown (KeyCode.S)) {
 								currentRoom = rooms.hallStep7;
@@ -290,6 +338,10 @@ public class GameItself : MonoBehaviour {
 							}
 							if (Input.GetKeyDown (KeyCode.A)) {
 								currentRoom = rooms.cave5;
+								pokemonCries.clip = dunsparce;
+								if (!pokemonCries.isPlaying) {
+									pokemonCries.Play();
+								}
 							}
 							if (Input.GetKeyDown (KeyCode.S)) {
 								currentRoom = rooms.hallStep8;
@@ -302,12 +354,20 @@ public class GameItself : MonoBehaviour {
 							roomText += newLines + newLines + "Step back into Unknown Cave (Key S)";
 							if (Input.GetKeyDown (KeyCode.S)) {
 								currentRoom = rooms.hallStep9;
+								pokemonCries.clip = golbat;
+								if (!pokemonCries.isPlaying) {
+									pokemonCries.Play();
+								}
 							}
 						} else if (currentRoom == rooms.cave6) {
 							roomText = "Nothing of interest in here either. You decide to take a minor break and heal your pokemon";
 							roomText += newLines + newLines + "Step back into Unknown Cave (Key S)";
 							if (Input.GetKeyDown (KeyCode.S)) {
 								currentRoom = rooms.hallStep9;
+								pokemonCries.clip = golbat;
+								if (!pokemonCries.isPlaying) {
+									pokemonCries.Play();
+								}
 							}
 						} else if (currentRoom == rooms.hallStep10) {
 							roomText = "A couple zubat fly overhead";
@@ -318,6 +378,10 @@ public class GameItself : MonoBehaviour {
 							}
 							if (Input.GetKeyDown (KeyCode.S)) {
 								currentRoom = rooms.hallStep9;
+								pokemonCries.clip = golbat;
+								if (!pokemonCries.isPlaying) {
+									pokemonCries.Play();
+								}
 							}
 						} else if (currentRoom == rooms.hallStep11) {
 							riddleQ = 0;
@@ -335,6 +399,10 @@ public class GameItself : MonoBehaviour {
 								roomText += "\nTake a step backward (Key S)";
 								if (Input.GetKeyDown (KeyCode.D)) {
 									currentRoom = rooms.riddle;
+									pokemonCries.clip = unknown;
+									if (!pokemonCries.isPlaying) {
+										pokemonCries.Play();
+									}
 								}
 								if (Input.GetKeyDown (KeyCode.S)) {
 									currentRoom = rooms.hallStep10;
@@ -349,9 +417,17 @@ public class GameItself : MonoBehaviour {
 								roomText += "\nTake a step backward (Key S)";
 								if (Input.GetKeyDown (KeyCode.W)) {
 									currentRoom = rooms.end;
+									pokemonCries.clip = unknown;
+									if (!pokemonCries.isPlaying) {
+										pokemonCries.Play();
+									}
 								}
 								if (Input.GetKeyDown (KeyCode.S)) {
 									currentRoom = rooms.riddle;
+									pokemonCries.clip = unknown;
+									if (!pokemonCries.isPlaying) {
+										pokemonCries.Play();
+									}
 								}	
 							} else {
 								roomText += newLines + "You tried opening the door but it didn't budge. Appears there's a key" +
@@ -359,6 +435,10 @@ public class GameItself : MonoBehaviour {
 								roomText += "\nTake a step backward (Key S)";
 								if (Input.GetKeyDown (KeyCode.S)) {
 									currentRoom = rooms.riddle;
+									pokemonCries.clip = unknown;
+									if (!pokemonCries.isPlaying) {
+										pokemonCries.Play();
+									}
 								}
 							}
 						}else if (currentRoom == rooms.end){
